@@ -18,7 +18,6 @@ public class InventarioService {
     }
 
     public Producto crearProducto(Producto producto) {
-
         return inventarioRepository.save(producto);
     }
 
