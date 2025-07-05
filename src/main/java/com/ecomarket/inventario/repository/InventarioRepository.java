@@ -7,6 +7,4 @@ import com.ecomarket.inventario.model.Producto;
 
 @Repository
 public interface InventarioRepository extends JpaRepository<Producto, Long> {
-
- 
 }
