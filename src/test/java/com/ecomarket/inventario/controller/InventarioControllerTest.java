@@ -103,7 +103,7 @@ public class InventarioControllerTest {
     @Test
     void testAgregarProductoConflict() throws Exception{
         Producto producto = new Producto(1L, "Leche 1L", "LECH734", 30);
-        when(inventarioService.crearProducto(Mockito.any(Producto.class))).thenThrow(new RuntimeException("Error al crear reporte"));
+        when(inventarioService.crearProducto(Mockito.any(Producto.class))).thenThrow(new RuntimeException("Error al crear producto"));
         mockMvc.perform(post("/api/inventario/agregar")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(producto)))
