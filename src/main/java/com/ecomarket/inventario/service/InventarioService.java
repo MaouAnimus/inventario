@@ -1,5 +1,6 @@
 package com.ecomarket.inventario.service;
 
+import java.util.Collections;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,10 +35,19 @@ public class InventarioService {
             if(producto.getStock() >= 0) {
                 productoExistente.setStock(producto.getStock());
             }
-            return inventarioRepository.save(productoExistente);
-        } else {
-            return null; 
-        }
+            inventarioRepository.save(productoExistente);
+            return productoExistente;
+        } 
+        return null; 
+        
     }
     
+    public List<Producto> getAll() {
+        List<Producto> productos = inventarioRepository.findAll();
+        if (productos != null && !productos.isEmpty()) 
+        {
+            return productos;       
+        }
+        return Collections.emptyList();
+    }
 }
