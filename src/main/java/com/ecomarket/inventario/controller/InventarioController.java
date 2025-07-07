@@ -46,7 +46,7 @@ public class InventarioController {
     }
     
     @GetMapping("/{idProducto}")
-    public ResponseEntity<Producto> getProductoById(@PathVariable Long idProducto) {
+    public ResponseEntity<Producto> getProductoById(@PathVariable Long idProducto, @RequestBody(required = false) Producto productos) {
         Producto producto = inventarioService.findById(idProducto);
         if (producto == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
